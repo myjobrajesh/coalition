@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [
+       'uses' => 'ProductController@viewProductForm',
+        'as'   => 'product.form.view'
+    ]);
+
+Route::post('productsave', [
+       'uses' => 'ProductController@saveProduct',
+        'as'   => 'product.save'
+    ]);
